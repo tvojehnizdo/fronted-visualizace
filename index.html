@@ -2,22 +2,22 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vizualizátor domu – Tvoje Hnízdo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; text-align: center; }
+    input, button { padding: 0.5rem; margin: 0.5rem; width: 300px; }
+    img { margin-top: 2rem; max-width: 100%; border: 1px solid #ccc; }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Vizualizátor domu – Tvoje Hnízdo</h1>
-    <form id="form">
-      <label for="prompt">Zadejte popis domu:</label>
-      <input type="text" id="prompt" name="prompt" placeholder="např. moderní dům se sedlovou střechou" required>
-      <button type="submit">Vygenerovat vizualizaci</button>
-    </form>
-    <div id="loading" style="display:none">⏳ Generuji obrázek…</div>
-    <div id="output"></div>
-  </div>
+  <h1>Vizualizátor domu – Tvoje Hnízdo</h1>
+  <input id="prompt" type="text" placeholder="Zadejte popis domu" />
+  <br />
+  <button onclick="generateImage()">Vygenerovat vizualizaci</button>
+  <div id="status"></div>
+  <img id="result" src="" alt="" />
   <script src="script.js"></script>
 </body>
 </html>

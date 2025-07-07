@@ -1,25 +1,27 @@
 
-document.getElementById('form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const prompt = document.getElementById('prompt').value;
-  const loading = document.getElementById('loading');
-  const output = document.getElementById('output');
-  loading.style.display = 'block';
-  output.innerHTML = '';
+async function generateImage() {
+  const prompt = document.getElementById("prompt").value.trim();
+  const status = document.getElementById("status");
+  const img = document.getElementById("result");
+  img.src = "";
+  status.textContent = "Načítání obrázku...";
+
   try {
-    const res = await fetch('https://api-production-0c11.up.railway.app/api/generate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const response = await fetch("https://api-production-0c11.up.railway.app/generate-image", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt })
     });
-    const data = await res.json();
+
+    const data = await response.json();
     if (data.imageUrl) {
-      output.innerHTML = `<img src="\${data.imageUrl}" alt="Vizualizace domu">`;
+      img.src = data.imageUrl;
+      status.textContent = "";
     } else {
-      output.innerHTML = '❌ Nelze načíst obrázek.';
+      status.textContent = "Nelze načíst obrázek.";
     }
-  } catch (err) {
-    output.innerHTML = '❌ Došlo k chybě při komunikaci s API.';
+  } catch (error) {
+    console.error("Chyba při generování:", error);
+    status.textContent = "Chyba při komunikaci se serverem.";
   }
-  loading.style.display = 'none';
-});
+}
