@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Vizualizátor domu – Tvoje Hnízdo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Vizualizátor domu – Tvoje Hnízdo</h1>
+    <form id="form">
+      <label for="prompt">Zadejte popis domu:</label>
+      <input type="text" id="prompt" name="prompt" placeholder="např. moderní dům se sedlovou střechou" required>
+      <button type="submit">Vygenerovat vizualizaci</button>
+    </form>
+    <div id="loading" style="display:none">⏳ Generuji obrázek…</div>
+    <div id="output"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+
+body {
+  font-family: sans-serif;
+  background: #f4f4f4;
+  padding: 2rem;
+  color: #333;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+button {
+  padding: 0.6rem 1.5rem;
+  background: orange;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background: darkorange;
+}
+#output img {
+  margin-top: 1rem;
+  max-width: 100%;
+}
